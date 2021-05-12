@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @photoncrusher
-- 👀 I’m interested in gaming, machine learning
+- 👀 I’m interested in gaming, machine learning, mathematics
 - 🌱 I’m currently learning computer science
 - 📫 How to reach me quang.doduy99@gmail.com
 

@@ -6,81 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="w3.css">
+    <script src="include.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-        <a href="https://photoncrusher.github.io/game.html" class="w3-bar-item w3-button">PYTHON PYGAME</a>
-        <a href="https://photoncrusher.github.io/learn.html" class="w3-bar-item w3-button">MACHINE LEARNING</a>
-        <a href="#" class="w3-bar-item w3-button">ABOUT ME</a>
+    <div>
+        <div w3-include-html="header1.html"></div>
     </div>
-
-    <div class="head-bar-container">
-          <div class="w3-teal header-text-flex1">
-            <button class="w3-button" onclick="w3_open()">
-                <img src="image/portfolio.svg" alt="" style="filter: invert(100%);width: 32px;height: 32px;">
-            </button>
-          </div>
-          <div class="w3-teal header-text-flex1">
-            <button class="w3-button" onclick=" location.href='index.html'">
-                <img src="image/home.svg" alt="" style="filter: invert(100%);width: 32px;height: 32px;">
-            </button>
-        </div>
-        <div class="header-text-flex2">
-            <a href="index.html">DUY QUANG</a>
-        </div>
-        <div class="w3-teal header-text-flex1">
-            <button class="w3-button" onclick=" location.href='https://www.facebook.com/quang.doduy99/'">
-                <img src="image/facebook.svg" alt="" style="filter: invert(100%);width: 32px;height: 32px;">
-            </button>
-        </div>
-        <div class="w3-teal header-text-flex1">
-            <button class="w3-button" onclick=" location.href='https://github.com/photoncrusher'">
-                <img src="image/github-sign.svg" alt="" style="filter: invert(100%);width: 32px;height: 32px;">
-            </button>
-          </div>
-    </div>
-    <script>
-        function w3_open() {
-          document.getElementById("mySidebar").style.display = "block";
-        }
-        
-        function w3_close() {
-          document.getElementById("mySidebar").style.display = "none";
-        }
-        </script>
     <div class="img-header">
-        <img src="image/gm.jpg" alt="">
+        <img src="image/gm.jpg" alt="" style="width:100%">
     </div>
-    <div class="news-container">
-        <div class="item-list">
-            <a style="font-size: 25px; margin-left: 30px;margin-right: 30px;margin-top: 20px;text-align: justify;" href="https://github.com/photoncrusher/snake_game_python">GAME SNAKE SỬ DỤNG THƯ VIỆN PYGAME CỦA PYTHON</a>
+    <div w3-include-html="tags.html"></div>
+    <div class="guide">
+        <a style="font-style: italic;">Bạn đang ở tag Chơi. Chọn các tag khác để xem các bài viết khác liên quan. Có thể chọn nút HOME hoặc DUY QUANG phía trên cùng màn hình để về trang chủ, hoặc các biểu tượng khác để xem các thông tin liên quan.</a>
+    </div>
+    <div class="list_main">
+        <div class="list_main_item">
+            <div class="list_main_item_img">
+                <a href="index.html"><img src="image/minecraft.jpg" style="width:100%; height: 100%;"/></a>                
+            </div>
+            <div class="list_main_item_detail">
+                <a href="index.html" style="font-size: xx-large;font-style: italic; margin-bottom: 20px;">GAME SNAKE HUNTING IN PYTHON PYGAME</a>
+                <a>
+                Làm quen với thư viện Pygame của Python, lập trình game rắn săn mồi căn bản và dễ dàng.
+                </a>
+            </div>
         </div>
-        <!-- <div class="item-list">
-            <a style="font-size: 25px; margin-left: 30px;margin-right: 30px;margin-top: 20px;">GAME2</a>
+        <div class="list_main_item">
+            <div class="list_main_item_img">
+                <a href="index.html"><img src="image/minecraft.jpg" style="width:100%; height: 100%;"/></a>                
+            </div>
+            <div class="list_main_item_detail">
+                <a href="index.html" style="font-size: xx-large;font-style: italic; margin-bottom: 20px;">DRAGON RPG WITH RPG MAKER</a>
+                <a>
+                Làm game 2D đơn giản với RPG Maker - Tựa game pháo đài rồng (Tiếng việt). 
+                </a>
+            </div>
         </div>
-        <div class="item-list">
-            <a style="font-size: 25px; margin-left: 30px;margin-right: 30px;margin-top: 20px;">GAME3</a>
+        <div class="list_main_item">
+            <div class="list_main_item_img">
+                <a href="index.html"><img src="image/minecraft.jpg" style="width:100%; height: 100%;"/></a>                
+            </div>
+            <div class="list_main_item_detail">
+                <a href="index.html" style="font-size: xx-large;font-style: italic; margin-bottom: 20px;">MINECRAFT 2D #1: NOISE, MAP, CAMERA</a>
+                <a>
+                Python Minecraft 2D Series 1: cách tạo map ngẫu nhiên, tối ưu hàm load chunk, lưu/ tải, hệ thống camera ingame.
+                </a>
+            </div>
         </div>
-        <div class="item-list">
-            <a style="font-size: 25px; margin-left: 30px;margin-right: 30px;margin-top: 20px;">GAME4</a>
-        </div>
-        <div class="item-list">
-            <a style="font-size: 25px; margin-left: 30px;margin-right: 30px;margin-top: 20px;">GAME5</a>
-        </div>
-        <div class="item-list">
-            <a style="font-size: 25px; margin-left: 30px;margin-right: 30px;margin-top: 20px;">GAME6</a>
-        </div> -->
+    </div>
+    <script>    
+        includeHTML();
+    </script>
+    <div class="img-footer">
+        <img src="image\footer.jpg" alt="" style="width: 100%;height: auto;">
     </div>
 </body>
 </html>
-
-<!-- <p style="margin-left: 30px;margin-right: 30px;">Snake game hay còn gọi là game rắn săn mồi là một trong những game kinh điển của thế hệ tuối thơ Việt Nam. 
-    Game gắn liền với thế hệ 8x, 9x, các dòng máy đen trắng, máy màu hỗ trợ Java cũ. Với lốii chơi đơn giản nhưng hấp dẫn 
-    game đã khiến bao thế hệ "game thủ" Việt phải đập điện thoại mỗi khi "chết ngu". 
-</p>
-<p style="margin-left: 30px;margin-right: 30px;">
-    Game play của game này rất đơn giản: bạn sẽ cố gắng điều khiển chú rắn của mình ăn những "thức ăn" trên đường đi 
-    nhằm gia tăng độ dài chú rắn cũng như tăng điểm số bản thân lên. Nếu như 
-</p> -->

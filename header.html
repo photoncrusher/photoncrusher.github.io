@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="w3.css">
+
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+    <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+    <a href="https://photoncrusher.github.io/game.html" class="w3-bar-item w3-button">PYTHON PYGAME</a>
+    <a href="https://photoncrusher.github.io/learn.html" class="w3-bar-item w3-button">MACHINE LEARNING</a>
+    <a href="#" class="w3-bar-item w3-button">ABOUT ME</a>
+</div>
+
+<div class="head-bar-container">
+    <div class="w3-teal header-text-flex1">
+        <button class="w3-button" onclick="w3_open()">
+            <img src="image/user.svg" alt="" style="filter: invert(100%);width: 32px;height: 32px;">
+        </button>
+    </div>
+    <div class="w3-teal header-text-flex1">
+        <button class="w3-button" onclick=" location.href='index.html'">
+            <img src="image/home.svg" alt="" style="filter: invert(100%);width: 32px;height: 32px;">
+        </button>
+    </div>
+    <div class="header-text-flex2">
+        <a href="index.html">DUY QUANG</a>
+    </div>
+    <div class="w3-teal header-text-flex1">
+        <button class="w3-button" onclick=" location.href='https://www.facebook.com/quang.doduy99/'">
+            <img src="image/facebook.svg" alt="" style="filter: invert(100%);width: 32px;height: 32px;">
+        </button>
+    </div>
+    <div class="w3-teal header-text-flex1">
+        <button class="w3-button" onclick=" location.href='https://github.com/photoncrusher'">
+            <img src="image/github-sign.svg" alt="" style="filter: invert(100%);width: 32px;height: 32px;">
+        </button>
+      </div>
+</div>
+<script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+    }
+    
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+</script>
+<div class="white-bar">
+    <a href="https://ncov.moh.gov.vn/">Hiện nay dịch COVID 19 đang diễn biến khó lường. Xem thông tin chính xác về COVID 19 tại đây.</a>
+</div>
+
+

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="w3.css">
+    <script src="include.js"></script>
+    <title>Duy Quang</title>
+</head>
+<body>
+    <div>
+        <div w3-include-html="header.html"></div>
+    </div>
+    <div class="img-header">
+        <img src="image\dawn.jpg" alt="" style="width: 100%;height: auto;">
+    </div>
+    <div w3-include-html="tags.html"></div>
+    <div class="guide">
+        <a style="font-style: italic;">Bạn đang đọc một bài viết. Chọn các tag khác để xem các bài viết khác liên quan. Có thể chọn nút HOME hoặc DUY QUANG phía trên cùng màn hình để về trang chủ, hoặc các biểu tượng khác để xem các thông tin liên quan.</a>
+    </div>
+    <div class="list_main">
+        <div style="margin:40px 0 40px 0">
+            <a style="font-style: italic;font-size: xx-large;">MINECRAFT 2D PART 1: NOISE, MAP, CAMERA</a>
+        </div>
+        <div>
+            <p style="text-indent: 30px; line-height: 2.5;">
+                MineCraft là một tựa game thú vị liên quan đến việc Khai thác, xây dựng trong một thế giới vô tận. Chắc hẳn các bạn ai cũng đã từng chơi Minecraft và ngạc nhiên với độ rộng lớn cũng như thú vị của nó.
+                Bạn có từng thắc mắc tại sao thế giới Minecraft lại vô tận và thú vị như vậy?
+            </p>
+            <p style="text-indent: 30px; line-height: 2.5;">
+                Thực ra, Minecraft là một tựa game dựa trên các thuật toán ngẫu nhiên. Hôm nay, chúng ta sẽ thử tìm hiểu các thuật toán đó để lập trình ra một tựa game đơn giản giống Minecraft, tôi gọi là Minecraft 2D. Ở đây, 2D nghĩa là vẫn giống Minecraft tuy nhiên ta sẽ sử dụng hệ toạ độ 2 chiều 2D nhằm thực hành implement một số thuật toán và thoả mãn thú vui tuổi thơ: If i dont have enough money to buy minecraft, so i create one!
+            </p>
+            <p style="text-indent: 30px; line-height: 2.5;">
+                Tất nhiên những gì viết ra dưới đây chỉ là đơn giản và mang tính thử nghiệm. Ta sẽ không đi vào quá sâu hoặc lập trình ra tựa game AAA tựa minecraft mà chỉ là implement cho thoả chí tò mò. Now, lets go!
+            </p>
+            <img src="image\minecraft.jpg" alt="" style="width: 100%;height: auto;">
+        </div>
+        <div style="margin:20px 0 20px 0">
+            <a style="font-size: x-large;">I. NOISE</a>
+        </div>
+        <div>
+            <p style="text-indent: 30px; line-height: 2.5;">
+                Câu hỏi đầu tiên tưởng dễ mà khó: How to generate map? Với Minecraft, việc Gen map là phức tạp, tuy nhiên ta sẽ mô phỏng một thuật toán Generate Map đơn giản ở đây, gọi là Noise.
+            </p>
+            <p style="text-indent: 30px; line-height: 2.5;">
+                Noise là thuật toán cho phép sinh ra các giá trị nhiễu dựa trên một tập các gradient Random hoặc có trước. Ví dụ với Hàm sin(ax), dễ thấy với a thấp, đồ thị sẽ dốc, ngược lại, đồ thị sẽ thoải!
+            </p>
+            <p style="text-indent: 30px; line-height: 2.5;">
+                Để đơn giản hoá, ta sẽ sử dụng Perlin Noise. Việc lý thuyết Perlin Noise tạm thời không đề cập ở đây, bạn có thể tìm hiểu thêm trên Wiki hoặc chúng ta sẽ có một bài viết nói về thuật toán này sau. Có thể nói nó là một thuật toán cơ bản cho phép tạo ra các Noise.
+            </p>
+            <p style="text-indent: 30px; line-height: 2.5;">
+                Vậy, quy trình đầu tiên ta đã tạo ra được như sau:
+            </p>
+            <img src="image\noise.jpg" alt="" style="width: 100%;height: auto;">
+            <p style="text-indent: 30px; line-height: 2.5;">
+                Dễ thấy, bạn cần dùng SEED(người dụng nhập), dùng hàm HASH (đã nói trong series Blockchain) hash SEED thành một chuỗi có độ dài đồng nhất, Sau đó Tạo ra hàm perlin với seed chính là giá trị đã HASH. Từ đó, với mỗi giá trị x ta nhập vào, sẽ thu được y là độ cao của x, và cứ thế, đối với map của ta, mỗi block landscape tại x sẽ có được độ cao là y, khi đó, map Generator được coi là đã thành công!
+            </p>
+            <p style="text-indent: 30px; line-height: 2.5;">
+                Một vấn đề đặt ra: Khi load map lên màn hình, sẽ load bao nhiêu block? Nếu load hết thì không thể được, vì sẽ có vài tỷ hoặc hơn block và máy sẽ treo! Chính vì vậy, hệ thống Chunks được đưa ra!
+            </p>
+        </div>
+        <div style="margin:20px 0 20px 0">
+            <a style="font-size: x-large;">II. CHUNKS</a>
+        </div>
+        <div>
+            <p style="text-indent: 30px; line-height: 2.5;">
+                Cần xây dựng một hệ thống Chunks chứa các Block được load từ F(x) là hàm Noise. Có thể được modify (mine) và preload để thuận tiện lưu trữ!
+            </p>
+             <img src="image\chunks.jpg" alt="" style="width: 100%;height: auto;">
+             <p style="text-indent: 30px; line-height: 2.5;">
+                Ý tưởng chính như hình vẽ: Mảng lưu các giá trị Preload sẽ là Arr1. Các chunks đang được load sẽ lưu trong Arr2 để vẽ ra màn hình! Kiểu cấu trúc này khá giống việc sử dụng con trỏ trong C++ nhỉ?
+            </p>
+            <img src="image\chunkload.jpg" alt="" style="width: 100%;height: auto;">
+            <p style="text-indent: 30px; line-height: 2.5;">
+                Khi đó, dễ thấy ta chỉ cần load 4 chunks xung quanh vị trí chunk của Player. Mỗi chunk đã load rồi sẽ được lưu vào Preloaded chunks(Arr2), chưa load sẽ được load mới vào. Khi load save cũng load Preloaded chunk vào Arr2. Tương tự khi Mine cũng như build, các block sẽ được lưu vào trong Arr2 chính là Preloaded Chunks!
+            </p>
+            <p style="text-indent: 30px; line-height: 2.5;">
+                Ta đã xây dựng thành công hệ thống chunks, loadmap cho phép lưu trữ các công trình đã mine, đã build, load from save và Optimize resource vì chỉ load 4 chunk(Arr1) và Draw 4 chunk đó, còn Arr2 coi như dữ liệu đã lưu và chỉ load khi cần!
+            </p>
+        </div>
+        <div style="margin:20px 0 20px 0">
+            <a style="font-size: x-large;">III. CAMERA</a>
+        </div>
+        <div>
+            <p style="text-indent: 30px; line-height: 2.5;">
+                Bây giờ, cần lập ra hệ thống Camera để move theo Position(x, y) của Player. Thực ra hệ thống Camera này rất đơn giản thôi, đó chính là việc chuyển hệ toạ độ từ hệ toạ độ O(x0, y0) về hệ toạ độ O(x1, y1) với x1, y1 là position của Player. Khi đó:
+            </p>
+            <p style="text-indent: 30px; line-height: 2.5;">
+                x_new = x_real - x_position (toạ độ x mới bằng toạ độ gốc trừ đi toạ độ player)
+            </p>
+            <p style="text-indent: 30px; line-height: 2.5;">
+                y_new = y_real - y_position (toạ độ y mới bằng toạ độ gốc trừ đi toạ độ player)
+            </p>
+            <p style="text-indent: 30px; line-height: 2.5;">
+                Ta hoàn toàn có thể fix cứng player tại trung tâm màn hình, khi đó game sẽ giống với hầu hết các game 2D khác! Kết quả đạt được sau Khi lập trình Part 1:
+            </p>
+            <img src="image\minecraf1.jpg" alt="" style="width: 100%;height: auto;">
+            <p style="text-indent: 30px; line-height: 2.5;">
+                Đón đọc phần II: Physics, Event, Mining, Building
+            </p>
+            <a href="https://github.com/photoncrusher/cursedkingdom1" style="color:blanchedalmond; background-color:cornflowerblue; border-radius: 10px;">LINK REPO - NOT MAINTAIN MORE</a>
+
+        </div>
+    </div>
+    <div class="img-footer">
+        <img src="image\footer.jpg" alt="" style="width: 100%;height: auto;">
+    </div>
+    <script>    
+    includeHTML();
+    </script>
+</body>
+</html>
